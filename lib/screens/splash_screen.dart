@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roadex_app/screens/homepage_screen.dart';
+import 'package:roadex_app/screens/intro_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomepageScreen()));
+          context, MaterialPageRoute(builder: (context) => IntroScreen()));
     });
   }
 
