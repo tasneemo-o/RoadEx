@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'homepage_screen.dart';
-
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -32,27 +30,27 @@ class _IntroScreenState extends State<IntroScreen> {
         PageViewModel(
           title: "Expert Car Repairs",
           body:
-          "Get professional help for car repairs, battery jumps, and flat tire fixes anytime, anywhere.",
+              "Get professional help for car repairs, battery jumps, and flat tire fixes anytime, anywhere.",
           image: buildImage('car-repair.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Fast Towing Services",
           body:
-          "Need a tow? We’ll get your vehicle to the nearest repair shop quickly and safely.",
+              "Need a tow? We’ll get your vehicle to the nearest repair shop quickly and safely.",
           image: buildImage('towing.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Easy Online Payments",
           body:
-          "Securely pay for services online with multiple payment options for a hassle-free experience.",
+              "Securely pay for services online with multiple payment options for a hassle-free experience.",
           image: buildImage('pay-online.png'),
           decoration: pageDecoration,
         ),
       ],
-      onDone: () => goHomePage(context),
-      onSkip: () => goHomePage(context),
+      onDone: () => goSignUp(context),
+      onSkip: () => goSignUp(context),
       showSkipButton: true,
       nextFlex: 0,
       skip: const Text(
@@ -64,7 +62,7 @@ class _IntroScreenState extends State<IntroScreen> {
         color: Color(0xff3A3434),
       ),
       done: const Text(
-        'Done',
+        'Getting Started!',
         style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w400,
@@ -84,12 +82,8 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 }
 
-void goHomePage(context) {
-  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-    builder: (context) {
-      return const HomepageScreen();
-    },
-  ), (Route<dynamic> route) => false);
+void goSignUp(context) {
+  Navigator.pushNamedAndRemoveUntil(context, '/signup', (route) => false);
 }
 
 Widget buildImage(String assetName) {
