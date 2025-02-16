@@ -83,7 +83,7 @@ class _IntroScreenState extends State<IntroScreen> {
 }
 
 void goSignUp(context) {
-  Navigator.pushNamedAndRemoveUntil(context, '/signup', (route) => false);
+  Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
 }
 
 Widget buildImage(String assetName) {

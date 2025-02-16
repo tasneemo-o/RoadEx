@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 
-
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -12,7 +11,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final GlobalKey<FormState> _formSignUpKey = GlobalKey<FormState>();
   final GlobalKey<FlutterPwValidatorState> _validatorKey =
-  GlobalKey<FlutterPwValidatorState>();
+      GlobalKey<FlutterPwValidatorState>();
 
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -43,9 +42,9 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   void _submitForm() {
-    if (_formSignUpKey.currentState!.validate() &&
-        _isPasswordValid) {
+    if (_formSignUpKey.currentState!.validate() && _isPasswordValid) {
       // TODO Sign Up Logic
+      Navigator.pushNamed(context, '/login');
     }
   }
 
@@ -72,7 +71,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     children: [
                       Text(
                         'Welcome to ',
-                        style: TextStyle(color: Color(0xff3A3434), fontSize: 20),
+                        style:
+                            TextStyle(color: Color(0xff3A3434), fontSize: 20),
                       ),
                       Text(
                         'RoadEx',
@@ -88,7 +88,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     style: TextStyle(color: Colors.grey),
                   ),
                   const SizedBox(height: 32),
-      
+
                   // username
                   TextFormField(
                     controller: usernameController,
@@ -103,9 +103,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       return null;
                     },
                   ),
-      
+
                   const SizedBox(height: 20),
-      
+
                   // phone number
                   TextFormField(
                     controller: phoneController,
@@ -115,15 +115,16 @@ class _SignupScreenState extends State<SignupScreen> {
                       if (value == null || value.isEmpty) {
                         return 'Enter your phone number';
                       }
-                      if (!RegExp(r'^\d{10,15}$').hasMatch(value) || value.length<11) {
+                      if (!RegExp(r'^\d{10,15}$').hasMatch(value) ||
+                          value.length < 11) {
                         return 'Enter a valid phone number';
                       }
                       return null;
                     },
                   ),
-      
+
                   const SizedBox(height: 20),
-      
+
                   // email
                   TextFormField(
                     controller: emailController,
@@ -134,7 +135,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         return 'Enter your email';
                       }
                       if (!RegExp(
-                          r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+                              r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
                           .hasMatch(value)) {
                         return 'Enter a valid email';
                       }
@@ -142,7 +143,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                   ),
                   const SizedBox(height: 20),
-      
+
                   // password
                   TextFormField(
                     controller: passwordController,
@@ -184,9 +185,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       onSuccess: () => setState(() => _isPasswordValid = true),
                       onFail: () => setState(() => _isPasswordValid = false),
                     ),
-      
+
                   const SizedBox(height: 20),
-      
+
                   ElevatedButton(
                     onPressed: _submitForm,
                     style: ElevatedButton.styleFrom(
@@ -198,7 +199,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ),
-      
+
                   const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -224,6 +225,4 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
     );
   }
-
-
 }
